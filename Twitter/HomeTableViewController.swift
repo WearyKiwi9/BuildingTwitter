@@ -47,8 +47,9 @@ class HomeTableViewController: UITableViewController {
     }
     
     @objc func loadTweets(){
+        numberOfTweet = 20
         let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let myParams = ["count":20]
+        let myParams = ["count":numberOfTweet]
         TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success: { (tweets: [NSDictionary]) in
             
             self.tweetArray.removeAll()
@@ -64,6 +65,28 @@ class HomeTableViewController: UITableViewController {
         })
     }
 
+    func loadMoreTweets(){
+        let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        numberOfTweet = numberOfTweet + 20
+        let myParams = ["count":numberOfTweet]
+        TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success: { (tweets: [NSDictionary]) in
+            
+            self.tweetArray.removeAll()
+            for tweet in tweets{
+                self.tweetArray.append(tweet)
+            }
+            self.tableView.reloadData()
+        }, failure: { (Error) in
+            print("Could not retreive tweets")
+        })
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+        if indexPath.row + 1 == tweetArray.count{
+            loadMoreTweets()
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
