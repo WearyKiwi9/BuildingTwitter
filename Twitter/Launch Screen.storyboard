@@ -18,12 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="TwitterLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="CXv-YL-vVc">
-                                <rect key="frame" x="-13.061674008810542" y="133.7863436123348" width="399.99999999999994" height="400.00000000000006"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="TwitterLogoBlue" translatesAutoresizingMaskIntoConstraints="NO" id="CXv-YL-vVc">
+                                <rect key="frame" x="-12.5" y="133.5" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="6Fn-fn-QjX"/>
+                                    <constraint firstAttribute="width" constant="400" id="izn-gF-d5X"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CXv-YL-vVc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3eY-Vk-MNU"/>
+                            <constraint firstItem="CXv-YL-vVc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="x5L-fa-98l"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
                 </viewController>
